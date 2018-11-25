@@ -1,0 +1,25 @@
+﻿@model DataLayer.NewsLatter
+
+@{
+    ViewBag.Title = "NewsLatter";
+    Layout = "";
+}
+
+@using (Html.BeginForm("NewsLatter","Home",FormMethod.Post))
+{
+    @Html.AntiForgeryToken()
+    @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+
+    <div class="widget  widget_text  push-down-30">
+        <h6 class="footer__headings">خبرنامه ایمیلی</h6>
+        <div class="textwidget" style="margin-bottom: 5px">
+            <span class="wpcf7-form-control-wrap your-name">
+                @Html.EditorFor(model => model.EmailAdressNewslatter, new { htmlAttributes = new { @class = "wpcf7-form-control wpcf7-text", placeholder = "عضویت در خبرنامه" } })
+                @Html.ValidationMessageFor(model => model.EmailAdressNewslatter, "", new { @class = "text-danger" })
+            </span>
+        </div>
+        <div class="textwidget">
+            <input type="submit" value="ثبت ایمیل" class="wpcf7-submit btn btn-primary" />
+        </div>
+    </div>
+}

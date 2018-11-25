@@ -1,0 +1,297 @@
+﻿@using DataLayer
+@{
+    var message = TempData["AlertMessage"] ?? string.Empty;
+    var messageHeader = TempData["MessageHeader"] ?? string.Empty;
+}
+<!DOCTYPE html>
+<html lang="fa-IR">
+<head>
+    <title>نورد آریان فولاد</title>
+    <meta charset="UTF-8">
+    <base href="">
+    <meta name="googlebot" content="index,follow">
+    <meta name="robots" content="noodp,noydir">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" href="/Content/css/style.css" />
+    <link rel="stylesheet" type="text/css" href="/Content/css/prettyPhoto.css" />
+</head>
+<body class="">
+    <div class="boxed-container">
+        <div class="top">
+            <div class="container">
+                <div class="row">
+                    <div class="col-xs-12 col-md-6 col-sm-6">
+                        <div class="top__right" style="font-size: 22px">شرکت نورد آریان فولاد</div>
+                    </div>
+                    <div class="col-xs-12 col-md-6 col-sm-6">
+                        <div class="top__left">
+                            <a href="#">
+                                <img src="/Content/images/Iran-Flag-icon.png" alt="" />
+                            </a>
+                            &nbsp;&nbsp;
+                            <a href="#">
+                                <img src="/Content/images/United-Kingdom-flag-icon.png" alt="" />
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <header class="header" id="Header">
+            <div class="container">
+                <div class="logo">
+                    <a href="#">
+                        <img src="/Content/images/logo.png" alt="آریان فولاد" class="img-responsive" />
+                    </a>
+                </div>
+                <div class="header-widgets  header-widgets-desktop">
+                    <div class="widget  widget-icon-box">
+                        <div class="icon-box">
+                            <i class="fa  fa-envelope  fa-3x"></i>
+                            <div class="icon-box__text">
+                                <h4 class="icon-box__title">ایمیل</h4>
+                                <span class="icon-box__subtitle">info@ArianSteel.com</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="widget  widget-icon-box">
+                        <div class="icon-box">
+                            <i class="fa fa-phone-square fa-3x"></i>
+                            <div class="icon-box__text">
+                                <h4 class="icon-box__title">مدیریت فروش</h4>
+                                <span class="icon-box__subtitle">021-6465</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="widget  widget-icon-box">
+                        <div class="icon-box">
+                            <i class="fa  fa-phone-square  fa-3x"></i>
+                            <div class="icon-box__text">
+                                <h4 class="icon-box__title">دفتر مرکزی</h4>
+                                <span class="icon-box__subtitle">021-44411010</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="widget  widget-social-icons">
+                        <a class="social-icons__link" href="http://instagram.com/ariansteel" target="_blank"><i class="fa  fa-instagram"></i></a>
+                        <a class="social-icons__link" href="http://t.me/ariansteel" target="_blank"><i class="fa  fa-telegram"></i></a>
+                        <a class="social-icons__link" href="http://www.youtube.com/ariansteel" target="_blank"><i class="fa  fa-youtube"></i></a>
+                    </div>
+                </div>
+                <!-- Toggle Button for Mobile Navigation -->
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#buildpress-navbar-collapse">
+                    <span class="navbar-toggle__text">منو</span>
+                    <span class="navbar-toggle__icon-bar">
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </span>
+                </button>
+            </div>
+            <div class="sticky-offset  js-sticky-offset"></div>
+            <div class="navigation">
+                <div class="collapse  navbar-collapse" id="buildpress-navbar-collapse">
+                    <ul id="menu-main-menu" class="navigation--main">
+                        <li class="current-menu-item"><a href="/">صفحه نخست</a></li>
+                        <li class="menu-item-has-children">
+                            <a style="cursor: pointer">درباره ما</a>
+                            <ul class="sub-menu">
+                                <li><a href="/AboutUs">درباره ما</a></li>
+                                <li><a href="/Certificates">گواهینامه ها</a></li>
+                            </ul>
+                        </li>
+                        @if (User.Identity.IsAuthenticated)
+                        {
+                            <li class="current-menu-item">
+                                <a href="/Products/Index" style="cursor: pointer">قیمت ها</a>
+                            </li>
+                        }
+                        <li class="current-menu-item">
+                            <a href="/AllProductLine" style="cursor: pointer">واحد ها</a>
+                        </li>
+                        <li><a href="/ProductsList">محصولات</a></li>
+                        <li><a href="#">گالری تصاویر</a></li>
+                        <li class="menu-item-has-children">
+                            <a style="cursor: pointer">فروش و مشتریان</a>
+                            <ul class="sub-menu">
+                                <li><a href="/Home/Proforma">درخواست صدور پیش فاکتور</a></li>
+                                <li><a href="/CustomerSatisfaction">سنجش رضایت مشتریان</a></li>
+                            </ul>
+                        </li>
+                        <li class="menu-item-has-children">
+                            <a style="cursor: pointer">سرویس ها</a>
+                            <ul class="sub-menu">
+                                <li><a href="https://sale.ariansteel.com">پرتال فروش شرکت</a></li>
+                                <li><a href="http://portal.ariansteel.com">پرتال پرسنل شرکت</a></li>
+                                <li><a href="http://oa.ariansteel.com/oa">اتوماسیون اداری</a></li>
+                                <li><a href="http://crm.ariansteel.com">مدیریت ارتباط با مشتریان CRM</a></li>
+                            </ul>
+                        </li>
+                        <li class="menu-item-has-children">
+                            <a style="cursor: pointer">تماس با ما</a>
+                            <ul class="sub-menu">
+                                <li><a href="/ContactUs">تماس با ما</a></li>
+                                <li><a href="/Employment">ارسال رزومه جهت همکاری</a></li>
+                                <li><a href="/Supplier">فرم تامین کنندگان کالا</a></li>
+                            </ul>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div class="container">
+            </div>
+            <div class="container">
+                <div class="header-widgets  hidden-md  hidden-lg">
+                    <div class="widget  widget-icon-box">
+                        <div class="icon-box">
+                            <i class="fa  fa-envelope  fa-3x"></i>
+                            <div class="icon-box__text">
+                                <h4 class="icon-box__title">ایمیل</h4>
+                                <span class="icon-box__subtitle">info@ArianSteel.com</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="widget  widget-icon-box">
+                        <div class="icon-box">
+                            <i class="fa fa-phone-square fa-3x"></i>
+                            <div class="icon-box__text">
+                                <h4 class="icon-box__title">مدیریت فروش</h4>
+                                <span class="icon-box__subtitle">021-6465</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="widget  widget-icon-box">
+                        <div class="icon-box">
+                            <i class="fa  fa-phone-square  fa-3x"></i>
+                            <div class="icon-box__text">
+                                <h4 class="icon-box__title">دفتر مرکزی</h4>
+                                <span class="icon-box__subtitle">021-44411010</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="widget  widget-social-icons">
+                        <a class="social-icons__link" href="http://instagram.com/ariansteel" target="_blank"><i class="fa  fa-instagram"></i></a>
+                        <a class="social-icons__link" href="http://t.me/ariansteel" target="_blank"><i class="fa  fa-telegram"></i></a>
+                        <a class="social-icons__link" href="http://www.youtube.com/ariansteel" target="_blank"><i class="fa  fa-youtube"></i></a>
+                    </div>
+                </div>
+            </div>
+        </header>
+        <div class="master-container">
+        </div>
+        @RenderBody()
+        <footer>
+            <div class="footer">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-xs-12 col-md-4">
+                            <form action="/Home/NewsLatter" method="post">
+                                <div class="widget  widget_text  push-down-30">
+                                    <h6 class="footer__headings">خبرنامه ایمیلی</h6>
+                                    <div class="textwidget" style="margin-bottom: 5px">
+                                        <span class="wpcf7-form-control-wrap your-name">
+                                            <input class="wpcf7-form-control wpcf7-text" required="لطفا ایمیل خود را وارد نمایید" type="text" name="EmailAdressNewslatter" placeholder="عضویت در خبرنامه">
+                                        </span>
+                                    </div>
+                                    <div class="textwidget">
+                                        <button class="wpcf7-submit btn btn-primary"><i></i>ثبت ایمیل</button>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                        <div class="col-xs-12  col-md-8">
+                            <div class="widget  widget_nav_menu  push-down-30">
+                                <h6 class="footer__headings">اطلاعات تماس</h6>
+                                <div class="menu-top-menu-container">
+                                    <div class="row">
+                                        <div class="col-md-6">
+                                            <div class="row">
+                                                <div class="col-md-12 col-sm-12 textwidget">
+                                                    <span class="icon-container"><span class="fa fa-building-o"></span></span><b> دفتر مرکزی </b>
+                                                    <br />
+                                                    <span class="icon-container"></span>تلفن : 44411010-021<br />
+                                                    <span class="icon-container"></span>فکس : 44449274-021<br />
+                                                    <span class="icon-container"></span>انتقادات و پیشنهادات : 44477114-021<br />
+                                                </div>
+                                                <div class="col-md-12 col-sm-12 textwidget">
+                                                    <span class="icon-container"><span class="fa fa-building"></span></span><b> دفتر فروش </b>
+                                                    <br />
+                                                    <span class="icon-container"></span>تلفن : 6465-021 و 44422727-021<br />
+                                                    <span class="icon-container"></span>فکس : 44422828-021<br />
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <div class="row">
+                                                <div class="fatalogo col-md-6">
+                                                    <img src="/Content/images/logo1.png" alt="" class="img-responsive" />
+                                                    <img src="/Content/images/logo2.png" alt="" class="img-responsive" />
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <div class="container">
+                    <div class="footer-bottom__left">
+                        @DateTime.Now.Year &copy; تمامی حقوق برای شرکت نورد آریان فولاد محفوظ است.
+                    </div>
+                </div>
+            </div>
+        </footer>
+    </div>
+
+    <div class="back-to-top-Div">
+        <a href="#" class="back-to-top" style="display: none;">
+            <i class="fa fa-angle-up"></i>
+        </a>
+    </div>
+    <!-- Modal -->
+    <div id="myModal" class="modal fade" role="dialog">
+        <div class="modal-dialog">
+            <!-- Modal content-->
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h4 class="modal-title" id="ModalHeader">Modal Header</h4>
+                </div>
+                <div class="modal-body" id="ModalBody">
+                </div>
+            </div>
+        </div>
+    </div>
+    <script type="text/javascript" src="/Content/js/jquery.min.js"></script>
+    <script type="text/javascript" src="/Content/js/isotope.js"></script>
+    <script type="text/javascript" src="/Content/js/imagesloaded.js"></script>
+    <script type="text/javascript" src="/Content/js/modernizr.custom.24530.js"></script>
+    <script type="text/javascript" src="/Content/js/underscore.js"></script>
+    <script type="text/javascript" src="/Content/js/jquery.prettyPhoto.js"></script>
+    <script type="text/javascript" src="/Content/js/header_carousel.js"></script>
+    <script type="text/javascript" src="/Content/js/main.min.js"></script>
+    <script type="text/javascript" src="/Content/js/main.js"></script>
+    <script src="/Scripts/jquery.validate.min.js" type="text/javascript"></script>
+    <script src="/Scripts/jquery.validate.unobtrusive.min.js" type="text/javascript"></script>
+    @*<script src="~/Content/js/MenuFix.js"></script>*@
+    <script>
+        var message = '@message';
+        var messageHeader = '@messageHeader';
+        if (message)
+            $(document).ready(function () {
+                $("#myModal").modal('show');
+                $("#ModalHeader").html(messageHeader);
+                $("#ModalBody").html(message);
+            });
+        //alert(message);
+    </script>
+    <script src="~/Scripts/modal.js"></script>
+    @RenderSection("scripts", required: false)
+
+</body>
+</html>

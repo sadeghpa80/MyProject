@@ -1,0 +1,107 @@
+﻿@model DataLayer.Proforma
+
+@{
+    ViewBag.Title = "Proforma";
+}
+
+@using (Html.BeginForm("Proforma", "Home", FormMethod.Post, new { enctype = "multipart/form-data" }))
+{
+    @Html.AntiForgeryToken()
+    <div class="main-title">
+        <div class="container">
+            <h1 class="main-title__primary">درخواست صدور پیش فاکتور</h1>
+            <h3 class="main-title__secondary">ارسال ردرخواست</h3>
+        </div>
+    </div>
+    <div class="breadcrumbs ">
+        <div class="container">
+            <span typeof="v:Breadcrumb"><a title="" class="home">صفحه نخست</a></span>
+            <span typeof="v:Breadcrumb"><a title="" class="home">فروش  مشتریان</a></span>
+            <span typeof="v:Breadcrumb"><span>درخواست صدور پیش فاکتور</span></span>
+        </div>
+    </div>
+    <div class="master-container">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-4"></div>
+                <div class="col-md-6">
+                    <div class="wpcf7" id="wpcf7-f5-o1" dir="rtl" lang="en-US">
+                        <div class="row">
+                            @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+                                <div class="col-xs-12  col-sm-12 col-md-12">
+                                    <div class="form-group row">
+                                        @Html.LabelFor(model => model.CustomerCompany, htmlAttributes: new { @class = "control-label col-md-4" })
+                                        <div class="col-md-8">
+                                            @Html.EditorFor(model => model.CustomerCompany, new { htmlAttributes = new { @class = "wpcf7-form-control wpcf7-text", placeholder = "نام موسسه", MaxLength = "500" } })
+                                            @Html.ValidationMessageFor(model => model.CustomerCompany, "", new { @class = "text-danger" })
+                                        </div>
+                                    </div>
+                                    <div class="form-group row">
+                                        @Html.LabelFor(model => model.CustomerName, htmlAttributes: new { @class = "control-label col-md-4" })
+                                        <div class="col-md-8">
+                                            @Html.EditorFor(model => model.CustomerName, new { htmlAttributes = new { @class = "wpcf7-form-control wpcf7-text", placeholder = "نام شخص هماهنگ کننده", MaxLength = "500" } })
+                                            @Html.ValidationMessageFor(model => model.CustomerName, "", new { @class = "text-danger" })
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group row">
+                                        @Html.LabelFor(model => model.CustomerTel, htmlAttributes: new { @class = "control-label col-md-4" })
+                                        <div class="col-md-8">
+                                            @Html.EditorFor(model => model.CustomerTel, new { htmlAttributes = new { @class = "wpcf7-form-control wpcf7-text", placeholder = "تلفن", MaxLength = "20" } })
+                                            @Html.ValidationMessageFor(model => model.CustomerTel, "", new { @class = "text-danger" })
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group row">
+                                        @Html.LabelFor(model => model.CustomerFax, htmlAttributes: new { @class = "control-label col-md-4" })
+                                        <div class="col-md-8">
+                                            @Html.EditorFor(model => model.CustomerFax, new { htmlAttributes = new { @class = "wpcf7-form-control wpcf7-text", placeholder = "فکس", MaxLength = "20" } })
+                                            @Html.ValidationMessageFor(model => model.CustomerFax, "", new { @class = "text-danger" })
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group row">
+                                        @Html.LabelFor(model => model.CustomerMobile, htmlAttributes: new { @class = "control-label col-md-4" })
+                                        <div class="col-md-8">
+                                            @Html.EditorFor(model => model.CustomerMobile, new { htmlAttributes = new { @class = "wpcf7-form-control wpcf7-text", placeholder = "موبایل", MaxLength = "20" } })
+                                            @Html.ValidationMessageFor(model => model.CustomerMobile, "", new { @class = "text-danger" })
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group row">
+                                        @Html.LabelFor(model => model.Request, htmlAttributes: new { @class = "control-label col-md-4" })
+                                        <div class="col-md-8">
+                                            @Html.EditorFor(model => model.Request, new { htmlAttributes = new { @class = "wpcf7-form-control wpcf7-textarea", placeholder = "شرح کالاهای مورد نظر" } })
+                                            @Html.ValidationMessageFor(model => model.Request, "", new { @class = "text-danger" })
+                                        </div>
+                                    </div>
+                                    <div class="form-group row">
+                                        @Html.LabelFor(model => model.ImageName, htmlAttributes: new { @class = "control-label col-md-4" })
+                                        <div class="col-md-8">
+                                            <input type="file" name="imgUp" accept="image/bmp, image/jpeg, image/png ,application/pdf" />
+                                            @Html.ValidationMessageFor(model => model.ImageName, "", new { @class = "text-danger" })
+
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group row">
+                                        <div class="col-sm-4">
+                                        </div>
+                                        <div class="col-md-8">
+                                            <input type="submit" value="ارسال اطلاعات" class="wpcf7-form-control wpcf7-submit btn btn-primary" />
+                                        </div>
+                                    </div>
+                                    <div class="form-group row">
+                                        <div class="col-sm-12">
+                                        </div>
+                                    </div>
+                                </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4"></div>
+            </div>
+        </div>
+    </div>
+}
+
